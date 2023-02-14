@@ -6,17 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Joel</title>
     <link rel="stylesheet" href="style.css">
+	
+	   <style>
+			ul {
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0;
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			li {
+			  float: left;
+			}
+
+			li a {
+			  display: block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			}
+
+			/* Change the link color to #111 (black) on hover */
+			li a:hover {
+			  background-color: #111;
+			}
+      </style>
+	
   </head>
   <body>
     <div id="app">
-	      <h2>AI Joel</h2> <p>by JKFutureTech.com</p> 
-		<ul>			
-			<li><a href="https://jkfuturetech.com">Business Directory</a></li>
-			<br>
-			<li><a href="https://www.paypal.com/donate/?hosted_button_id=JKJW6X5XYN858">Donate to JKFutureTech</a></li>
+	      <p><h2>AI Joel</h2> by JKFutureTech.com</p> 
+		  <ul>
+		  <li><a href="https://www.aijoel.com/">Home</a></li>
+		  <li><a href="https://jkfuturetech.com">Business Directory</a></li>
+		  <li style="float:right"><a class="active" href="https://www.aijoel.com/">Refresh</a></li>
 		</ul>
-		<img align="center" src="https://www.jkfuturetech.com/images/donate.png" alt="Donate to JKFutureTech" />
-     <div id="chat_container"></div> 
+		<a class="active" href="https://www.paypal.com/donate/?hosted_button_id=JKJW6X5XYN858"><img align="center" src="https://www.jkfuturetech.com/images/donate-button.png" alt="Donate to JKFutureTech" /></a>
+    
+	<div id="chat_container"></div> 
 
      <form>
       <textarea name="prompt" rows="1" cols="1" placeholder="Ask JKFutureTech...">      
