@@ -1,22 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Joel</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+      /* Define styles for the two columns */
+      .menu {
+        float: left;
+        width: 20%;
+        height: 100%;
+        background-color: #f1f1f1;
+        padding: 20px;
+      }
+
+      .main {
+        float: left;
+        width: 80%;
+        height: 100%;
+        padding: 20px;
+      }
+
+      /* Responsive styles for smaller screens */
+      @media only screen and (max-width: 600px) {
+        .menu, .main {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="app">
+
+    <div class="menu">
+      <h2>AI Joel</h2> <p>by JKFutureTech.com</p> 
+		<ul>			
+			<li><a href="https://jkfuturetech.com">Business Directory</a></li>
+			<br>
+			<li><a href="https://www.paypal.com/donate/?hosted_button_id=JKJW6X5XYN858">Donate to JKFutureTech</a></li>
+		</ul>
+		<img align="center" src="https://www.jkfuturetech.com/images/donate.png" alt="Donate to JKFutureTech" />
+		
+    </div>
+
+    <div class="main">
+
+ <div id="app">
      <div id="chat_container"></div> 
 
      <form>
-      <textarea name="prompt" rows="1" cols="1" placeholder="Ask JKFutureTech...">      
+      <textarea name="prompt" rows="1" cols="1" placeholder="Ask AI Joel...">      
       </textarea>
       <button type="submit"><img src="assets/send.svg" /></button>
      </form>
     </div>
     <script type="module" src="script.js"></script>
+    </div>
   </body>
 </html>
