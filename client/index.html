@@ -55,6 +55,17 @@
 				  overflow-x: hidden; /* Hide horizontal scrollbar */
 				}
       </style>
+	  
+		<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+		<script>
+		  window.OneSignal = window.OneSignal || [];
+		  OneSignal.push(function() {
+		    OneSignal.init({
+		      appId: "64f32490-37ab-4833-a6f9-37593312557f",
+		    });
+		  });
+		</script>
+	  
   </head>
   <body>
  <div id="app">
