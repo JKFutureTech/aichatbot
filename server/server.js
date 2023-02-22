@@ -33,7 +33,6 @@ app.post('/', async (req, res) => {
             top_p:1,
             frequency_penalty:0.5,
             presence_penalty:0,
-            max_context_questions:10,
         });
 
         res.status(200).send({
