@@ -15,6 +15,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+let lastPrompt = '';
+
 app.get('/', async (req, res) => {
     res.status(200).send({
         message: 'Hello from AI Joel',
@@ -27,13 +29,15 @@ app.post('/', async (req, res) => {
 
         const response = await openai.createCompletion({
             model:"text-davinci-003",
-            prompt:`${prompt}`,
+            prompt:`${lastPrompt} ${prompt}`,
             temperature:0,
             max_tokens:3000,
             top_p:1,
             frequency_penalty:0.5,
             presence_penalty:0,
         });
+
+        lastPrompt = prompt;
 
         res.status(200).send({
             bot: response.data.choices[0].text
