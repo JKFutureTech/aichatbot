@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let lastPrompt = '';
+let lastResponse = '';
 
 app.get('/', async (req, res) => {
     res.status(200).send({
@@ -29,7 +29,7 @@ app.post('/', async (req, res) => {
 
         const response = await openai.createCompletion({
             model:"text-davinci-003",
-            prompt:`${lastPrompt} ${prompt}`,
+            prompt:`${lastResponse} ${prompt}`,
             temperature:0,
             max_tokens:3000,
             top_p:1,
@@ -37,10 +37,10 @@ app.post('/', async (req, res) => {
             presence_penalty:0,
         });
 
-        lastPrompt = prompt;
+        lastResponse = response.data.choices[0].text;
 
         res.status(200).send({
-            bot: response.data.choices[0].text
+            bot: lastResponse
         });
     } catch (error) {
         console.log(error);
