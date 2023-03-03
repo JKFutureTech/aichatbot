@@ -5,6 +5,8 @@ import { Configuration, OpenAIApi } from 'openai';
 
 dotenv.config();
 
+let messages = [];
+
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 }); 
@@ -14,6 +16,11 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+  messages.push({
+    'role': 'user',
+    'content': inputField.value
+  })
 
 app.get('/', async (req, res) => {
     res.status(200).send({
@@ -27,12 +34,7 @@ app.post('/', async (req, res) => {
 
         const response = await openai.createCompletion({
             model:"gpt-3.5-turbo",
-            messages: [
-                        {"role": "system", "content": "Your name is Aijoel and you are a helpful, creative, clever, and very friendly assistant."},
-                        {"role": "user", "content": "What is your name?"},
-                        {"role": "assistant", "content": "My name is Aijoel."},
-                        {"role": "user", "content": $prompt}
-                    ],                                
+            messages,                              
             temperature:0,
             max_tokens:4000,
             top_p:1,
@@ -40,8 +42,9 @@ app.post('/', async (req, res) => {
             presence_penalty:0,
         });
 
-        res.status(200).send({
-            bot: response.data.choices[0].text
+         messages.push({
+          'role': 'assistant',
+          'content': data.choices[0].message.content 
         })
     } catch (error) {
         console.log(error);
