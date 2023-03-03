@@ -27,7 +27,10 @@ app.post('/', async (req, res) => {
 
         const response = await openai.createCompletion({
             model:"gpt-3.5-turbo",
-            messages:`{$prompt}`,                      
+            messages:`The following is a conversation with an AI assistant named Aijoel. 
+            Aijoel is helpful, creative, clever, and very friendly.\n\nHuman: Hello, 
+            who are you?\nAI: I am Jarvis, an AI created by OpenAI. 
+            How can I help you today?\nHuman:{$prompt} \nAI:`,                      
             temperature:0,
             max_tokens:3000,
             top_p:1,
