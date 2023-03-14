@@ -27,15 +27,22 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt;
+        let messages = [];
+        messages.append({"role": "system", "content": "Your name is Joel and you are a helpful assistant"});
+        let question = {};
+        question ['user'] = 'user';
+        question ['content'] = prompt;
+        messages.append(question);
+        
 
         const response = await openai.createCompletion({
-             model:"gpt-3.5-turbo",
-            messages: [{"role": "user", "content": $prompt}],                             
+             model:"gpt-3.5-turbo",                                                    
             temperature:0,
             max_tokens:4000,
             top_p:1,
             frequency_penalty:0.5,
             presence_penalty:0,
+            messages: messages
         });
 
         res.status(200).send({
