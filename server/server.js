@@ -27,11 +27,14 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt;
+        
+    
+        
         let messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Who won the world series in 2020?"},
         {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-        {"role": "user", "content": "what is your name"}
+        {"role": "user", "content": `prompt`}
         ]; 
         
       const response = await openai.createCompletion({
