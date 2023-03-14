@@ -35,13 +35,13 @@ app.post('/', async (req, res) => {
         messages.append(question);
         
       const response = await openai.createCompletion({
-             model:"gpt-3.5-turbo",                                                    
+            model:"gpt-3.5-turbo", 
+            messages: `${messages}`,
             temperature:0,
             max_tokens:4000,
             top_p:1,
             frequency_penalty:0.5,
-            presence_penalty:0,
-            messages: messages
+            presence_penalty:0,            
         });
 
         res.status(200).send({
