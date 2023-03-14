@@ -28,18 +28,12 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt;
-       let promptHistory = [];
-        // add the current prompt to the prompt history array
-        promptHistory.push(prompt);
 
-        // if there are more than 10 prompts in the array, remove the oldest one
-        if (promptHistory.length > 10) {
-            promptHistory.shift();
-        }
+        
 
         const response = await openai.createCompletion({
             model:"text-davinci-003",
-            prompt:`${promptHistory}`,
+            prompt:`${prompt}`,
             temperature:0,
             max_tokens:3000,
             top_p:1,
