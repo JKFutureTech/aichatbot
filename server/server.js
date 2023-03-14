@@ -30,7 +30,7 @@ app.post('/', async (req, res) => {
         
     
         
-        let messages = [{ "role": "system", "content": prompt }];
+        let messages = [{ "role": "user", "content": prompt }];
 
 
         
