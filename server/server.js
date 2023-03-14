@@ -35,19 +35,7 @@ app.post('/', async (req, res) => {
         messages.append(question);
         
 
-        const response = await openai.createCompletion({
-             model:"gpt-3.5-turbo",                                                    
-            temperature:0,
-            max_tokens:4000,
-            top_p:1,
-            frequency_penalty:0.5,
-            presence_penalty:0,
-            messages: messages
-        });
-
-        res.status(200).send({
-        bot: response.data.choices[0].text
-        })
+  
     } catch (error) {
         console.log(error);
         res.status(500).send({ error })
