@@ -31,7 +31,7 @@ app.post('/', async (req, res) => {
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Who won the world series in 2020?"},
         {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-        {"role": "user", "content": prompt}
+        {"role": "user", "content": "what is your name"}
         ]; 
         
       const response = await openai.createCompletion({
