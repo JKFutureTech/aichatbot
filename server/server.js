@@ -36,12 +36,7 @@ app.post('/', async (req, res) => {
             top_p:1,
             frequency_penalty:0.5,
             presence_penalty:0,  
-            messages: [
-                { role: "system", text: "You are a helpful assistant." },
-                { role: "user", text: "Who won the world series in 2020?" },
-                { role: "assistant", text: "The Los Angeles Dodgers won the World Series in 2020." },
-                { role: "user", text: prompt }
-            ]
+            messages: `${prompt}`
         });
 
         res.status(200).send({
