@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt;
-        const promptHistory = [];
+       let promptHistory = [];
         // add the current prompt to the prompt history array
         promptHistory.push(prompt);
 
