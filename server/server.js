@@ -32,7 +32,7 @@ app.post('/', async (req, res) => {
         let question = {};
         question ['user'] = 'user';
         question ['content'] = prompt;
-        messages.append(question);
+        
         
 
         const response = await openai.createCompletion({
